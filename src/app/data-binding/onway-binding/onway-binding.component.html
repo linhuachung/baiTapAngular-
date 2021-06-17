@@ -1,0 +1,8 @@
+<h1>*Oneway Binding</h1>
+<p>{{ fullname }} - {{ age }}</p>
+
+<input type="text" [value]="fullname" #thamso />
+
+<button class="btn btn-success" (click)="eventBinding(thamso.value)">
+  Event Binding
+</button>

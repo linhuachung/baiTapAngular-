@@ -1,0 +1,33 @@
+<h1>*Two Bingding</h1>
+<input type="text" [value]="username" [(ngModel)]="username" />
+<p>{{ username }}</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="[(NgModel)]"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="form-group">
+        <label>Fullname</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="fullname"
+          #FullName
+        />
+      </div>
+      <button class="btn btn-success" (click)="showFullName(FullName.value)">
+        Submit
+      </button>
+      <p>Email: {{ email }}</p>
+      <p>Fullname: {{ fullName }}</p>
+    </div>
+  </div>
+</div>
