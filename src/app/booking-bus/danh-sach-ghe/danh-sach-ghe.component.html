@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-6">
       <ng-container *ngFor="let item of mangGhe; let index = index">
-        <app-ghe [chair]="item" (evntChoose)="showChair($event)" *ngIf ="status"></app-ghe>
+        <app-ghe [chair]="item" (evntChoose)="showChair($event)" *ngIf="status"></app-ghe>
         <br *ngIf="(index + 1) % 4 === 0" />
       </ng-container>
     </div>
@@ -15,8 +15,8 @@
         Ghế: {{ item.TenGhe }} - Giá: ${{ item.Gia }}
       </div>
 
-    <div class="btn btn-danger" (click)="pickChair()">Dặt ghế</div>
-     <span>Tổng tiền: $<span *ngFor="let item of listChairChoose">{{item.tongTien}}</span></span> 
+      <button class="btn btn-danger" (click)="pickChair()">Đặt ghế</button>
+      <span>Tổng tiền: $<span *ngFor="let item of listChairChoose">{{item.tongTien}}</span></span>
     </div>
   </div>
 </div>

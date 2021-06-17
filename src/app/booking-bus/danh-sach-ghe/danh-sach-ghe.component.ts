@@ -59,7 +59,7 @@ export class DanhSachGheComponent implements OnInit {
     const index = this.listChairChoose.findIndex((item:any)=>item.SoGhe ===chair.SoGhe)
     if(index === -1){
       this.listChairChoose.push(chair);
-      this.mangGhe.find((item: any) => item.tongTien += chair.Gia);
+      // this.listChairChoose.find((item: any) => item.tongTien += chair.Gia);
       this.mangGhe.find((item: any) => item.SoGhe === chair.SoGhe);
       console.log(this.listChairChoose)
     }
@@ -67,17 +67,22 @@ export class DanhSachGheComponent implements OnInit {
   }
 
   pickChair(){
-    
-    for(let item of this.mangGhe){
-        for(let item2 of this.listChairChoose){      
-          if(item2.SoGhe === item.SoGhe){
-            item.TrangThai =true
-            console.log(1)
-          }
-        }
-    }
-
-    console.log(this.mangGhe)
+    this.listChairChoose.map((itemListChoose:any) =>{
+     return  this.mangGhe.map((itemListChair:any ) => {
+      if(itemListChoose.SoGhe === itemListChair.SoGhe){
+        itemListChair.TrangThai =true;
+        this.listChairChoose.find((item:any) => item.tongTien += itemListChair.Gia);
+      }
+     })
+    })
+    // for(let item of this.mangGhe){
+    //     for(let item2 of this.listChairChoose){      
+    //       if(item2.SoGhe === item.SoGhe){
+    //         item.TrangThai =true
+    //         console.log(1)
+    //       }
+    //     }
+    // }
 
   }
 
